@@ -104,7 +104,7 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
-  // return arr.prototype.sort((a, b)=> a.lastName > b.people.lastname);
+  return arr.sort((a, b)=> a.lastName > b.lastName);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +119,15 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  
+if(arr.lastName == arr.lastName && arr.firstName == arr.firstName){
+  return arr.sort((a,b) => a.age < b.age)
+} else if (arr.lastName == arr.lastName){
+  return arr.sort( (a,b) => a.firstName > b.firstName)
+} else{
+  return arr.sort( (a,b) => a.lastName > b.lastName)
+}
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
