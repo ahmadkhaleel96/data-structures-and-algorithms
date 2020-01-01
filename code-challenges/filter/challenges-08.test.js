@@ -93,12 +93,9 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
-  let obj=[];
-  let stat = arr.filter(( arr.baseStat > minBaseStat))
-     for (let i=0; i<stat.length;i++){
-         obj.push(arr.stats.stat)
-     }
-  return obj;
+
+  let stat = arr.filter(arr=>  arr.baseStat > minBaseStat)
+     return stat;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,6 +108,12 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  let names =[];
+  let obj= arr.filter(obj => obj.baseStat > minBaseStat)
+     for(let i=0; i<obj.length; i++){
+    names.push(obj[i].stat.name) 
+    }
+    return names;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,6 +167,12 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  let characters = arr.filter( arr => {
+    if (arr.children = 'undefined'){
+      return arr.children
+    }})
+
+// return characters
 };
 
 /* ------------------------------------------------------------------------------------------------
