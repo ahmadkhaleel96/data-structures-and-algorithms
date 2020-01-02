@@ -13,7 +13,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-};
+  let count =0;
+    let filtered = input.filter( value=> input.includes(value)).map((value,index)=>{
+      if (input[index].includes(value)){
+        count++;
+        return count;
+      }
+    })
+    return filtered
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
