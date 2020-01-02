@@ -167,13 +167,16 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
-  let characters = arr.filter( arr => {
-    if (arr.children = 'undefined'){
-      return arr.children
-    }})
 
-// return characters
+  let characters = arr.filter( arr =>{ 
+    if (!arr.children){
+      return true;
+    } 
+  })
+  return characters;
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -185,6 +188,19 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  let numbers = arr.filter( nums => {
+     if (typeof(nums) == 'number'){
+       return true;
+     }})
+     let output = numbers.map( value => {
+       if(value%2===0){
+         return ("even")
+       } else {
+         return ('odd')
+       }
+     }
+  );
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
