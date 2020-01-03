@@ -24,7 +24,15 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-
+  // let sum = 0
+  let outputArray= new Array(stores[0].length).fill(0);
+  for (let i= 0 ; i<stores.length; i++){
+    for (let j=0 ; j <stores[i].length; j++){
+      outputArray[j] += stores[i][j];
+    }
+  }
+    return outputArray;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,8 +45,15 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
 
+
+let objArr = []
 const salesData = (hours, data) => {
   // Solution code here...
+  data.forEach( (value, index) =>{
+  let obj = {"sales": `${value} cookies`, "time": `${hours[index]}`}
+  objArr.push(obj)
+  });
+  return objArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,6 +76,13 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  for (let i=0 ; i<arr.length ; i++){
+    let total = arr.items.reduce( (sum, val, idx) =>{
+     sum += items.quantity[val]
+     return sum;
+    },0);
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,6 +105,15 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  for ( let i=0; i<board.length; i++){
+    for (let j=0; j<board.length; j++){
+      if (board[i][j] == '#'){
+        return 'hit'
+      }else if (board[i][j] == ' '){
+        return 'miss'
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,6 +126,13 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  let multiple =1
+  for (let i=0; i<numbers.length; i++){
+    for (let j=0; j<numbers.length-1; j++){
+     multiple  *= numbers[i][j];
+    }
+  }
+  return multiple;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,6 +153,20 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  let sumRow =0;
+  let sumCol = 0;
+  let avgRow=0;
+  let avg = 0;
+  for (let i=0 ; i<weather.length; i++){
+    for ( let j=0 ; j<weather.length+3;j++){
+      sumRow += weather[i][j]
+      avgRow = sumRow/(weather.length+4)
+    }
+    sumCol += avgRow[i];
+    avg = sumCol/weather.length+1
+
+  }
+return avg
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,7 +188,20 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let sumRow =0;
+  let sumCol = 0;
+  let avgRow= [];
+  for (let i=0 ; i<weather.length; i++){
+    for ( let j=0 ; j<weather.length+3;j++){
+      sumRow += weather[i][j]
+      avgRow.push(sumRow/(weather.length+4))
+    }
+  }
+  const min = arr.reduce((a, b) => Math.min(a, b))
+  return min
 };
+  
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -152,6 +217,17 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+  let output = [];
+  let split =str.split('\n');
+  split.map( item =>{
+    let splittedItem = item.split(',');
+    let sum = splittedItem.reduce( (acc, val ,idx) => {
+      acc += parseInt(val)
+      return acc;
+    }, 0);
+    output.push(sum)
+  });
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
