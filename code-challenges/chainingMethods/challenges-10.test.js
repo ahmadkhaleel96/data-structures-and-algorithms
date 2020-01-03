@@ -14,13 +14,12 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 const count = (target, input) => {
   // Solution code here...
   let count =0;
-    let filtered = input.filter( value=> input.includes(value)).map((value,index)=>{
-      if (input[index].includes(value)){
-        count++;
-        return count;
-      }
-    })
-    return filtered
+    let filtered = input.filter( value=>{
+      let num = value.map(item=>{
+        if(item === target) return count++
+      })
+    }) 
+return count
   };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +34,15 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let sum =0;
+  let sumArr = input.map( value => {
+      let total = value.map( val =>{
+        sum += val;
+      })
+  });
+  return sum;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -49,10 +56,22 @@ This function should then raise 2 to the power of the resulting numbers, returni
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
-const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
-};
 
+  const divisibleByFiveTwoToThePower = (input) => {
+    // Solution code here...
+    let filtered = input.filter( value =>{
+      if  (value%5 ==0 && isNaN(value)){
+        return value;
+      }
+    });
+    console.log(filtered)
+    let outerArr = filtered.map( val => {
+      let innerArr = val.map( value => {
+        return Math.pow(2,value);
+      })
+    })
+      
+  };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
