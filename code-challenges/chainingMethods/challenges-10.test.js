@@ -59,17 +59,8 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
   const divisibleByFiveTwoToThePower = (input) => {
     // Solution code here...
-    let filtered = input.filter( value =>{
-      if  (value%5 ==0 && isNaN(value)){
-        return value;
-      }
-    });
-    console.log(filtered)
-    let outerArr = filtered.map( val => {
-      let innerArr = val.map( value => {
-        return Math.pow(2,value);
-      })
-    })
+    return input.map( (arrays) => arrays.filter( (value) => (typeof value === 'number' && value%5 === 0)).map( innerValue => Math.pow(2,innerValue)))
+
       
   };
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +127,8 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  let filtered = data.filter( chara => chara.gender === 'male' || chara.gender === 'female' ).map( charaName => charaName.name ).join(' and ');
+  return filtered;  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,7 +139,11 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  let filtered = data.filter(charaHeight => charaHeight<100).map( charaName => charaName.name).sort( (a,b) => a<b);
+  return filtered; 
 };
+
+// it's annoying 
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
