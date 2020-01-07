@@ -46,12 +46,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 
-let objArr = []
 const salesData = (hours, data) => {
+  let objArr = []
   // Solution code here...
   data.forEach( (value, index) =>{
-  let obj = {"sales": `${value} cookies`, "time": `${hours[index]}`}
-  objArr.push(obj)
+  objArr.push({ sales: `${value} cookies`, time: `${hours[index]}` })
   });
   return objArr;
 };
@@ -76,13 +75,17 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
-  for (let i=0 ; i<arr.length ; i++){
-    let total = arr.items.reduce( (sum, val, idx) =>{
-     sum += items.quantity[val]
-     return sum;
-    },0);
-  }
-  return total;
+  let sum = 0 
+   arr.forEach( objects => {
+      if (objects.store.includes('Pet store')){
+        objects.items.forEach( value =>{
+          if ( value.name.includes('Treats')){
+             sum = value.quantity;
+          }
+        })
+      }
+   });
+   return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,18 +105,19 @@ Here is a sample board:
 
 The top row of the board is considered row zero and row numbers increase as they go down.
 ------------------------------------------------------------------------------------------------ */
-
+  
 const battleship = (board, row, col) => {
   //  Solution code here...
-  for ( let i=0; i<board.length; i++){
-    for (let j=0; j<board.length; j++){
-      if (board[i][j] == '#'){
-        return 'hit'
-      }else if (board[i][j] == ' '){
-        return 'miss'
-      }
+  let response = 'miss';
+  board.forEach((inputValue, guessedRow) => 
+    inputValue.forEach((hitValue, guessedColumn) => {
+        if(row===guessedRow&&col===guessedColumn){
+            response= hitValue==='#' ? 'hit' : 'miss';
+        }
     }
-  }
+
+    ))
+    return response;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,12 +131,8 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 const calculateProduct = (numbers) => {
   // Solution code here...
   let multiple =1
-  for (let i=0; i<numbers.length; i++){
-    for (let j=0; j<numbers.length-1; j++){
-     multiple  *= numbers[i][j];
-    }
-  }
-  return multiple;
+    numbers.forEach(arrays => arrays.forEach(value => multiple *= value));
+    return multiple
 };
 
 /* ------------------------------------------------------------------------------------------------
