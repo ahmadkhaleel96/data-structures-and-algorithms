@@ -46,6 +46,8 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
     // Solution code here...
+    let number = arr.map( number => number.substring(1,4)+number.substring(6,9)+number.substring(10,14))
+    return number
   };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,6 +60,14 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let oddLetters = [];
+  let letters = str.split('')
+    let odds = letters.map( (value, index) => {
+      if (index%2 !== 0){
+        oddLetters.push(value);
+      }
+    })
+    return oddLetters.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,16 +78,23 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  let output = true
+  arr.forEach( value => {
+    output = output && value.includes(':)');
+  })
+  return output
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
------------------------------------------------------------------------------------------------- */
+------------------------------ ------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
   // Solution code here...
+  let filtered = arr.filter( value => value.includes(target));
+  return filtered;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,6 +105,11 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  let output = true;
+  let found = arr.map( value => {
+    output = output && value.includes(target);
+  })
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,7 +126,10 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  return arr.map( value =>value.filter( brook => !brook.includes('Brook')))
 };
+
+// tried to put the output array in another  array but it given me failed so i returned the expression directly it worked!!! like WTH?? also tried forEach and for still no avail.  no time for stretch goals now!!  
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
