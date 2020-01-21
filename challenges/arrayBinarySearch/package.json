@@ -5,7 +5,8 @@
   "main": "array-binary-search.js",
   "scripts": {
     "test": "jest --verbose --coverage",
-    "start": "npm run start"
+    "start": "npm run start",
+    "docs": "npm run docs"
   },
   "keywords": [],
   "author": "",
