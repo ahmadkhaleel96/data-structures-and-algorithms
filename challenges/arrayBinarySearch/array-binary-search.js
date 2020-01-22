@@ -8,15 +8,20 @@ let arrayBinarySearch = module.exports = {};
  * @return {boolean}
  */
 arrayBinarySearch.indexNum = (arr, key) => {
-  let index =  0;
-  for (let i=0; i<arr.length ; i++){
-    if (key === arr[i]){
-      index = i;
-      break;
-    } 
-    else{
-      index = -1;
-    }
-  }
+  let arrStart = 0;
+  let arrEnd = arr.length -1;
+    let index =  0;
+     while (arrStart <= arrEnd){
+       let middleIndex = Math.floor((arrStart + arrEnd)/2)
+       if ( arr[middleIndex] === key){
+         index = middleIndex;
+         break;
+       } else if(arr[middleIndex] < key) {
+         arrStart = middleIndex +1;
+       } else {
+         arrEnd = middleIndex -1; 
+       }
+       index = -1;
+     }
   return index
   }
