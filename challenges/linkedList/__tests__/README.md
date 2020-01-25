@@ -5,7 +5,7 @@ Ahmad K. Al-Mahasneh
 
 ### Links and Resources
 
-- [submission PR](https://github.com/ahmadkhaleel96/data-structures-and-algorithms/pull/)
+- [submission PR](https://github.com/ahmadkhaleel96/data-structures-and-algorithms/pull/21)
 
 
 
