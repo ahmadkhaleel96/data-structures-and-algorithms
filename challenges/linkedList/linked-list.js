@@ -25,7 +25,6 @@ class LinkedList{
     }
 
   }
-
   includes( value ){
 
     let currentNode = this.head;
