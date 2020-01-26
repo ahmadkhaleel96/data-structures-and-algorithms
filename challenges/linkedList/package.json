@@ -1,0 +1,17 @@
+{
+  "name": "linkedList",
+  "version": "1.0.0",
+  "description": "",
+  "main": "linked-list.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "start": "npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0"
+  }
+}
