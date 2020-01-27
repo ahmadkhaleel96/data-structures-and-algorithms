@@ -138,4 +138,74 @@ describe('linked List', () => {
     expect(list.toString()).toEqual('10');
 
   });
+
+  test('llkthFromEnd() returns null if given negative input', () => {
+
+    let list = new LinkedList;
+
+    let array = [ 50,40,30,20,10 ];
+
+    array.forEach( value => {
+      list.insert( value );
+    });
+
+    expect(list.llkthFromEnd(-1)).toEqual(null);
+
+  });
+
+  test('llkthFromEnd()  gets the correct value of a node k nodes from the end of the linked list', () => {
+
+    let list = new LinkedList;
+
+    let array = [ 10,9,8,7,6,5,4,3,2,1 ];
+
+    array.forEach( value => {
+      list.insert( value );
+    });
+
+    expect(list.llkthFromEnd(0)).toEqual(10);
+    expect(list.llkthFromEnd(5)).toEqual(5);
+    expect(list.llkthFromEnd(9)).toEqual(1);
+
+  });
+
+  test('llkthFromEnd() if the value greater than the length return null', () => {
+
+    let list = new LinkedList;
+
+    let array = [ 5,4,3,2,1 ];
+
+    array.forEach( value => {
+      list.insert( value );
+    });
+
+    expect(list.llkthFromEnd(10)).toBeNull();
+
+  });
+
+  test('llkthFromEnd() if the value and the list length are equal return null', () => {
+
+    let list = new LinkedList;
+
+    let array = [ 10,9,8,7,6,5,4,3,2,1 ];
+
+    array.forEach( value => {
+      list.insert( value );
+    });
+
+    expect(list.llkthFromEnd(10)).toEqual(null);
+
+  });
+
+  test('llkthFromEnd() returns null if list length is 1 and k > 0', () => {
+
+    let list = new LinkedList;
+
+    list.insert( 1 );
+
+    expect(list.llkthFromEnd(0)).toEqual(1);
+    expect(list.llkthFromEnd(1)).toEqual(null);
+
+  });
+
 });
